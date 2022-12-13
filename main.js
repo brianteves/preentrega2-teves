@@ -56,32 +56,98 @@ alert( 'El total de su compra es: $' + precioTotal + '. ' + 'Gracias por su comp
 
 
 
-/*---------------------------------OBJETOS - METODOS CONSTRUCTIVOS--------------------------------*/
+/*---------------------------------------------------------------------------------------------*/
 
 
+// creamos un array con objetos varios 
+const panialeraBeMom = 
+[ 
+            {nombre: "huggies", categoria: "pañales",  stock: 3, precio: 2500},
+            {nombre: "estrella", categoria: "algodon", stock: 5, precio: 500},
+            {nombre: "johnson & johnson", categoria: "shampoo",  stock: 2,precio: 1800},
+            {nombre: "avent", categoria: "chupete", stock: 0, precio: 1000},
+            {nombre: "pampers", categoria: "apositos", stock: 10, precio: 1600},
+            {nombre: "nuk", categoria: "mamadera", stock: 50, precio: 5000},
+            {nombre: "babysec", categoria: "pañales",  stock: 20, precio: 3500},
+]
 
-class Persona{
-    constructor(nombre, edad, calle) {
-    this.nombre = prompt("Indicar su nombre y apellido");
-    this.edad = parseInt(prompt("Indicar su edad"));
-    this.calle = parseInt(prompt("Indicar su domicilio"));
-    this.documento = parseInt(prompt("Ingrese su número de documento"));
-    bebé: {
-        this.nombreApellidoBebé = prompt("Ingrese nombre y apellido del bebé:");
-        this.género = prompt("Ingrese género del bebé. Indicando femenino o masculino");
-        this.documento = parseInt(prompt("Ingrese numero de documento del bebé:"));
-        }
-    }
-    hablar(){
-    console.log("Hola, soy "+ this.nombre);
-    console.log("Tengo"+" "+this.edad +" "+ "años.");
-    console.log("Vivo en"+" "+this.calle);
-    console.log("Padre de"+" "+this.nombreApellidoBebé);
+//Array de productos con un produucto nuevo 
+const prodNuevo= {
+    nombre: "chicco",
+    tipo : "pañales",  
+    categoria: "pañales",  
+    stock: 2,
+    precio: 2500
+}
+
+//creamos un constructor de productos  para que el usuario pueda crear productos nuevos
+class Producto {
+    constructor(nombre, categoria, stock, precio){
+        this.nombre = nombre;
+        this.categoria = categoria;
+        this.stock = stock;
+        this.precio = precio;
     }
 }
-    const persona1 = new Persona(this.nombre, this.edad, this.domicilio);
-    persona1.hablar();
+
+//creamos una funcion para agregar productos 
+function crearProducto(){
+    let nombreProducto = prompt("Como se llama el producto?");
+    let categoriaProducto = prompt("que categoria de producto? ('pañales' 'algodon' 'shampoo'  'chupete' 'apositos' 'mamadera' )");
+    let stockProducto = parseInt(prompt("cuanto stock quiere agregar"));
+    let precioProducto = parseInt(prompt("cual es el precio?"));
+    
+    const prodNuevo = new Producto(nombreProducto, categoriaProducto, stockProducto, precioProducto);
+    
+    panialeraBeMom.push(prodNuevo)   
+    // console.log(prodNuevo);
+    return prodNuevo;
+    }
+
+// empezamos preguntando el nombre el empleado y dandole la bienvenida
+function mensajeBienvenida(){
+    let nombre = prompt("Ingrese su nombre y apellido: ");
+    alert(`Bienvenido, ${nombre}`);
+}
+
+// seguimos creando variables globales para empezar a contar el stock
+let pañales = 0;
+let algodon = 0;
+let shampoo = 0;
+let chupete = 0;
+let apositos = 0;
+let mamadera = 0;
+
+//damos la bienvenida 
+mensajeBienvenida();
+
+let agregarProductos = prompt("Desea agregar productos? Indique 'si' o 'no'.");
+    while(agregarProductos == "si"){ 
+        let producto = crearProducto();       
+        if(producto.categoria ==  "pañales"){
+            alert(`Tu producto ${producto.nombre} Se guardo, agrego un stock de ${pañales = pañales + parseInt(producto.stock) } y su precio ${producto.precio}`);
+        } else if (producto.categoria == "algodon"){
+            alert(`Tu producto ${producto.nombre} Se guardo, agrego un stock de ${algodon = algodon + parseInt(producto.stock)} y su precio ${producto.precio}`);
+        } else if (producto.categoria == "shampoo"){
+            alert(`Tu producto ${producto.nombre} Se guardo,  agrego un stock de de ${shampoo = shampoo + parseInt(producto.stock)} y su precio ${producto.precio}`);
+        } else if (producto.categoria == "chupete"){
+            alert(`Tu producto ${producto.nombre} Se guardo, agrego un stock de ${chupete = chupete + parseInt(producto.stock)}  y su precio ${producto.precio}`);
+        } else if (producto.categoria == "apositos"){
+            alert(`Tu producto ${producto.nombre} Se guardo, agrego un stock de ${apositos = apositos + parseInt(producto.stock)}  y su precio ${producto.precio}`);
+        } else if (producto.categoria == "mamadera"){
+            alert(`Tu producto ${producto.nombre} Se guardo, agrego un stock de ${mamadera = mamadera + parseInt(producto.stock)}  y su precio ${producto.precio}`);
+        } else {
+            console.log(" no entendi que quiso poner")
+        }
+        agregarProductos = prompt("Desea seguir agregando productos? Indique 'si' o 'no'.");     
+    };
 
 
-/*---------------------------------ARRAYS--------------------------------*/
+//filtrado por precio
+const filtraPorPrecio = panialeraBeMom.filter(producto => producto.precio > 600);
+console.log(filtraPorPrecio)
 
+
+//Busqueda 
+const busqueda = panialeraBeMom.find(producto => producto.categoria == "pañales");
+console.log(busqueda);
