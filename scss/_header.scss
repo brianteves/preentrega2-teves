@@ -1,0 +1,24 @@
+header{
+    @include general;
+    top: 0%;
+    margin: 1px;
+}
+
+header nav ul li a{
+    text-decoration: none;
+    color: $text-color-12;
+    font-style:oblique ;
+    font-size: 2rem;
+    background-color: $text-color-9;
+    text-transform: uppercase;
+}
+
+header nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+header nav ul li{
+    margin-right: 2rem;
+}
