@@ -1,13 +1,13 @@
 /*-----LOG IN DEL CLIENTE Y BIENVENIDA-----*/
 
-let entrada = prompt("Ingresa tu nombre");
+/*let entrada = prompt("Ingresa tu nombre");
 let salida = entrada + ", " + "te damos la bienvenida a Pañalera Be❤Mom.";
 alert(salida);
 
 
 /*-----ALGORITMO CON CONDICIONAL-----*/
 
-let age = parseInt(prompt('Ingrese su edad'))
+/*let age = parseInt(prompt('Ingrese su edad'))
 
 if (age < 18) {
     alert('Eres menor de edad, puedes seguir navegando pero no tienes acceso a agregar al carrito.')
@@ -17,12 +17,12 @@ if (age < 18) {
     } else{
         alert('Para acceder al carrito necesitamos tu edad. Vuelve a intentarlo.')
     }
-}
+}*/
 
 
 /*-----ALGORITMO UTILIZANDO CICLO-----*/
 
-let producto = "";
+/*let producto = "";
 let precio = 0;
 let cantidad = 0;
 let seguirComprando = false;
@@ -52,6 +52,36 @@ do {
     seguirComprando = confirm("¿Querés agregar otro producto?");
 } while (seguirComprando);
 
-alert( 'El total de su compra es: $' + precioTotal + '. ' + 'Gracias por su compra, queda a su disposicion la página para ver nuestro contenido. 🥰' );
+alert( 'El total de su compra es: $' + precioTotal + '. ' + 'Gracias por su compra, queda a su disposicion la página para ver nuestro contenido. 🥰' );*/
 
-/*--------------------------------------------------------------------------------------------------------*/
+
+
+/*---------------------------------OBJETOS - METODOS CONSTRUCTIVOS--------------------------------*/
+
+
+
+class Persona{
+    constructor(nombre, edad, calle) {
+    this.nombre = prompt("Indicar su nombre y apellido");
+    this.edad = parseInt(prompt("Indicar su edad"));
+    this.calle = parseInt(prompt("Indicar su domicilio"));
+    this.documento = parseInt(prompt("Ingrese su número de documento"));
+    bebé: {
+        this.nombreApellidoBebé = prompt("Ingrese nombre y apellido del bebé:");
+        this.género = prompt("Ingrese género del bebé. Indicando femenino o masculino");
+        this.documento = parseInt(prompt("Ingrese numero de documento del bebé:"));
+        }
+    }
+    hablar(){
+    console.log("Hola, soy "+ this.nombre);
+    console.log("Tengo"+" "+this.edad +" "+ "años.");
+    console.log("Vivo en"+" "+this.calle);
+    console.log("Padre de"+" "+this.nombreApellidoBebé);
+    }
+}
+    const persona1 = new Persona(this.nombre, this.edad, this.domicilio);
+    persona1.hablar();
+
+
+/*---------------------------------ARRAYS--------------------------------*/
+
